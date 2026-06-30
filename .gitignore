@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build / generated output
+dist/
+build/
+*.tsbuildinfo
+
+# Style Dictionary generated platform output
+# (regenerated from tokens/ via `npm run build:tokens` — never hand-edited)
+platform/native/**/*.generated.*
+
+# Figma export artifacts — regenerated on release via `npm run export:figma`.
+# Committed-vs-ignored is a team call (see ARCHITECTURE.md); ignored by default.
+export/build/*.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
