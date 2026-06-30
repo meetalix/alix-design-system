@@ -1,5 +1,11 @@
 # Alix Design System
 
+### → [**Open the interactive component library**](https://meetalix.github.io/alix-design-system/)
+
+The live, clickable kit — every component, every state, rendered from the real React Native code. The fastest way in if you just want to browse what exists. *(Public site, published from `main` via GitHub Pages. The repo/source stays private; the licensed brand fonts are excluded from the public build.)*
+
+---
+
 The authoritative reference for how Alix looks, feels, and is built — for product managers, engineers, and anyone designing in the product.
 
 This repository is the **source of truth**. Not Figma, not a wiki, not a screenshot in someone's deck. If it isn't defined here, it isn't part of the design system.
@@ -40,8 +46,9 @@ These are opinions, not universal laws. They're the right opinions *for us*. The
 We're writing these down so they read as deliberate decisions, not gaps we forgot to fill.
 
 - **The Figma export covers tokens and foundations only — not components.** Designers can pull our colors, typography, spacing, and other foundations into Figma (via a Style Dictionary → Tokens Studio / Figma variables pipeline). They **cannot** round-trip our components back into editable Figma components. Coded React Native components do not export into a usable Figma library. If you want to mock up *using* Alix components inside Figma, that requires a hand-built Figma library that this repo does not produce or maintain. That is out of scope by choice.
-- **The reference is read-only and gated behind GitHub access.** This repo is private, so the GitHub Pages site requires a GitHub login with access to the repo. That is a real barrier for some non-engineering teammates, and we accept it in exchange for keeping the system version-controlled and private. To compensate:
-  - Anyone who needs to view the system must be granted repo access — make that part of onboarding.
+- **The published reference is read-only, and the live component library is a public site.** The repo (the source of truth) stays private, but the compiled Storybook is published to a public GitHub Pages URL — the current plan doesn't support private Pages, and a public, linkable library is worth more to non-engineering teammates than a gated one. What this means in practice:
+  - The site exposes the *compiled* component library, not the source. The repo, tokens, and code remain private to people with GitHub access.
+  - The licensed Fatype brand fonts are **excluded** from the public build (system-font fallback online), so the licensed files are never served publicly.
   - The published site is for *reading*, not commenting. Feedback and change requests go through the channel below, not through the site.
 - **The canonical visual is the React Native rendering.** We are mobile-first today. As web clients arrive, the system is structured to extend to them, but until then the live-rendered components reflect mobile.
 
@@ -55,7 +62,7 @@ We're writing these down so they read as deliberate decisions, not gaps we forgo
 
 ## How to engage
 
-**To view the system:** open the GitHub Pages site (requires repo access — ask in the team channel if you don't have it).
+**To view the system:** open the [interactive component library](https://meetalix.github.io/alix-design-system/) — it's a public site, no login needed.
 
 **To propose a change:** open a pull request, or if you're not comfortable in the repo, file the request in our feedback channel and a builder will carry it through. Design changes are reviewed like code.
 

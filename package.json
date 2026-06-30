@@ -11,7 +11,8 @@
     "build": "node export/build-tokens.js all",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build -o storybook-static"
+    "build-storybook": "storybook build -o storybook-static",
+    "build-storybook:public": "VITE_ALIX_FONTS=off storybook build -o storybook-static"
   },
   "peerDependencies": {
     "lucide-react-native": ">=0.400.0",

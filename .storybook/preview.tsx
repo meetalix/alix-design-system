@@ -4,36 +4,12 @@ import type { Preview } from '@storybook/react-native-web-vite';
 import { tokens } from '../components/theme';
 
 // Load the licensed Fatype fonts and bind them to the exact RN family names the
-// type tokens reference (e.g. "BeausiteClassic-Medium"), so react-native-web
-// renders the real typefaces.
-import MakeWay from '../assets/fonts/MakeWay-Regular.otf?url';
-import MakeWayApp from '../assets/fonts/MakeWayApp-Regular.otf?url';
-import BeausiteRegular from '../assets/fonts/BeausiteClassic-Regular.otf?url';
-import BeausiteMedium from '../assets/fonts/BeausiteClassic-Medium.otf?url';
-import BeausiteSemibold from '../assets/fonts/BeausiteClassic-Semibold.otf?url';
-import BeausiteAppRegular from '../assets/fonts/BeausiteClassicApp-Regular.otf?url';
-import BeausiteAppMedium from '../assets/fonts/BeausiteClassicApp-Medium.otf?url';
-import BeausiteAppSemibold from '../assets/fonts/BeausiteClassicApp-Semibold.otf?url';
-
-const face = (family: string, url: string) =>
-  `@font-face{font-family:'${family}';src:url(${url}) format('opentype');font-display:swap;}`;
-
-const fontCss = [
-  face('MakeWay-Regular', MakeWay),
-  face('MakeWayApp-Regular', MakeWayApp),
-  face('BeausiteClassic-Regular', BeausiteRegular),
-  face('BeausiteClassic-Medium', BeausiteMedium),
-  face('BeausiteClassic-Semibold', BeausiteSemibold),
-  face('BeausiteClassicApp-Regular', BeausiteAppRegular),
-  face('BeausiteClassicApp-Medium', BeausiteAppMedium),
-  face('BeausiteClassicApp-Semibold', BeausiteAppSemibold),
-].join('\n');
-
-if (typeof document !== 'undefined' && !document.getElementById('alix-fonts')) {
-  const el = document.createElement('style');
-  el.id = 'alix-fonts';
-  el.textContent = fontCss;
-  document.head.appendChild(el);
+// type tokens reference (e.g. "BeausiteClassic-Medium") — EXCEPT when built with
+// VITE_ALIX_FONTS=off (the public Pages build), where this branch is statically
+// dead-code-eliminated so the licensed OTFs are never published. Online the site
+// falls back to system fonts; locally it shows the real typefaces.
+if (import.meta.env.VITE_ALIX_FONTS !== 'off') {
+  import('./fonts').then((m) => m.injectFonts());
 }
 
 const preview: Preview = {

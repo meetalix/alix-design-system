@@ -1,0 +1,52 @@
+name: Deploy Storybook to Pages
+
+# Builds the interactive component library (Storybook → react-native-web) and
+# publishes it to GitHub Pages on every push to main.
+#
+# NOTE: this Pages site is PUBLIC (the plan doesn't support private Pages). The
+# repo/source stays private; only the compiled Storybook is world-readable. The
+# build uses `build-storybook:public`, which excludes the licensed Fatype font
+# files (system-font fallback online) so they are never served publicly.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deploy; let in-progress runs finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      # lucide-react-native caps React at 18 while RN 0.81 needs 19, so the dev
+      # tree installs with legacy peer resolution (consumers resolve their own).
+      - run: npm ci --legacy-peer-deps
+      - run: npm run build:tokens
+      - run: npm run build-storybook:public
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: storybook-static
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
