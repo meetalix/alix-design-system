@@ -1,0 +1,74 @@
+{
+  "color": {
+    "$type": "color",
+    "palette": {
+      "$description": "Primitives — raw brand values. Never consume these directly in a component; use a semantic alias below.",
+      "navy":        { "$value": "#0C2553", "$description": "Primary brand color" },
+      "navy-deep":   { "$value": "#0E2D66", "$description": "Tonal symbol-on-navy" },
+      "white":       { "$value": "#FFFFFF" },
+      "tan":         { "$value": "#F4F3F1", "$description": "Neutral light background" },
+      "tan-dark":    { "$value": "#EAE8E1", "$description": "Deeper neutral block" },
+      "purple":      { "$value": "#B6ABFD", "$description": "Signature accent" },
+      "light-blue":  { "$value": "#D7F5F9", "$description": "Text + fields on navy" },
+      "symbol-blue": { "$value": "#A0DAE0", "$description": "Two-tone logo accent" },
+      "blue":        { "$value": "#1170DB", "$description": "Links, primary action" },
+      "cta-blue":    { "$value": "#043CA5", "$description": "Hover / pressed action" },
+      "ink":         { "$value": "#11100D", "$description": "Near-black headings/body" },
+      "text-working":{ "$value": "#2F3136", "$description": "Secondary 'working' text" },
+      "gray":        { "$value": "#9E9E9E", "$description": "Disabled / placeholder" },
+
+      "red":         { "$value": "#B23A2B" },
+      "red-soft":    { "$value": "#F6E7E4" },
+      "amber":       { "$value": "#A56A12" },
+      "amber-soft":  { "$value": "#F7EEDD" },
+      "green":       { "$value": "#2F6B4F" },
+      "green-soft":  { "$value": "#E4EEE8" },
+      "blue-soft":   { "$value": "#E4F0FB" },
+
+      "teal":        { "$value": "#05D3BD", "$description": "Data-viz only" },
+      "cyan":        { "$value": "#72F2E4", "$description": "Data-viz only" },
+      "yellow":      { "$value": "#FFEB67", "$description": "Data-viz only" },
+      "orange":      { "$value": "#FFC167", "$description": "Data-viz only" }
+    },
+
+    "bg": {
+      "$description": "Semantic surfaces — what components consume.",
+      "default": { "$value": "{color.palette.white}",    "$description": "Default app surface" },
+      "alt":     { "$value": "{color.palette.tan}",      "$description": "Alternate / inset surface" },
+      "block":   { "$value": "{color.palette.tan-dark}", "$description": "Pressed/filled neutral block" },
+      "dark":    { "$value": "{color.palette.navy}",     "$description": "Navy surface (hero, Specialist)" }
+    },
+
+    "fg": {
+      "default":   { "$value": "{color.palette.ink}",          "$description": "Primary text on light" },
+      "secondary": { "$value": "{color.palette.text-working}", "$description": "Secondary text on light" },
+      "muted":     { "$value": "{color.palette.gray}",         "$description": "Disabled / placeholder / meta" },
+      "brand":     { "$value": "{color.palette.navy}",         "$description": "Navy text/icons on light (functional icons, key labels)" },
+      "on-dark":   { "$value": "{color.palette.white}",        "$description": "Primary text on navy" },
+      "on-dark-secondary": { "$value": "{color.palette.light-blue}", "$description": "Secondary text on navy" }
+    },
+
+    "accent": {
+      "default":   { "$value": "{color.palette.purple}",     "$description": "The one accent moment per screen" },
+      "soft":      { "$value": "{color.palette.light-blue}", "$description": "Soft accent fill (tags, chips)" },
+      "on-accent": { "$value": "{color.palette.ink}",        "$description": "Text/icon on accent fills" }
+    },
+
+    "action": {
+      "default": { "$value": "{color.palette.blue}",     "$description": "Links, primary action" },
+      "press":   { "$value": "{color.palette.cta-blue}", "$description": "Hover / pressed action" }
+    },
+
+    "border": {
+      "hairline": { "$value": "rgba(17,16,13,0.12)", "$description": "The default 1px separator" }
+    },
+
+    "state": {
+      "$description": "Semantic state colors. Use the soft tint for the surface, the strong tone for the one thing that matters. Use only on genuine state moments.",
+      "error":   { "strong": { "$value": "{color.palette.red}" },   "soft": { "$value": "{color.palette.red-soft}" } },
+      "warning": { "strong": { "$value": "{color.palette.amber}" }, "soft": { "$value": "{color.palette.amber-soft}" } },
+      "success": { "strong": { "$value": "{color.palette.green}" }, "soft": { "$value": "{color.palette.green-soft}" } },
+      "info":    { "strong": { "$value": "{color.palette.blue}" },  "soft": { "$value": "{color.palette.blue-soft}" } }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "shadow": {
+    "$type": "shadow",
+    "$description": "Very restrained. Depth mostly comes from hairlines + space, not heavy shadows. The native build converts each to an RN shadow object (shadowColor/Offset/Opacity/Radius) plus an Android `elevation`.",
+    "sm":      { "$value": { "color": "rgba(0,0,0,0.05)", "offsetX": 0, "offsetY": 1,  "blur": 2,  "spread": 0 }, "$description": "Subtle lift (segmented thumb)" },
+    "md":      { "$value": { "color": "rgba(0,0,0,0.06)", "offsetX": 0, "offsetY": 4,  "blur": 16, "spread": 0 }, "$description": "Raised — menus, popovers" },
+    "lg":      { "$value": { "color": "rgba(0,0,0,0.08)", "offsetX": 0, "offsetY": 12, "blur": 40, "spread": 0 }, "$description": "Large raised surfaces" },
+    "overlay": { "$value": { "color": "rgba(0,0,0,0.12)", "offsetX": 0, "offsetY": 12, "blur": 40, "spread": 0 }, "$description": "Sheets, dialogs" },
+    "fab":     { "$value": { "color": "rgba(0,0,0,0.18)", "offsetX": 0, "offsetY": 12, "blur": 40, "spread": 0 }, "$description": "Floating action button" }
+  }
+}

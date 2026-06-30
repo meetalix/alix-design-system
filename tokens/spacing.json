@@ -1,0 +1,15 @@
+{
+  "space": {
+    "$type": "dimension",
+    "$description": "4px base grid. Values are unitless points (RN-ready).",
+    "1": { "$value": 4,  "$description": "Hairline gaps, icon padding" },
+    "2": { "$value": 8,  "$description": "Within a component" },
+    "3": { "$value": 12, "$description": "Label to control" },
+    "4": { "$value": 16, "$description": "Card padding, list rows" },
+    "5": { "$value": 24, "$description": "Between cards, screen gutter" },
+    "6": { "$value": 32, "$description": "Section breaks" },
+    "7": { "$value": 48, "$description": "Major rhythm" },
+    "8": { "$value": 64 },
+    "9": { "$value": 96 }
+  }
+}

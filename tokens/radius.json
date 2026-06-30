@@ -1,0 +1,11 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "$description": "Generous, soft rectangles. Unitless points. The 'pill' value is for fully-rounded controls (switches, tags, status pills) only.",
+    "sm":   { "$value": 8,   "$description": "Chips, inner tags" },
+    "md":   { "$value": 12,  "$description": "Default — buttons, fields, cards" },
+    "lg":   { "$value": 26,  "$description": "Large content panels / sheets" },
+    "xl":   { "$value": 36,  "$description": "Hero frames" },
+    "pill": { "$value": 999, "$description": "Fully rounded — switch tracks, tags, status pills" }
+  }
+}

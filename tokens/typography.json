@@ -1,0 +1,34 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "$description": "RN font family names. Each weight is a distinct linked family (the licensed Fatype OTFs ship one file per weight), so components set fontFamily directly rather than relying on fontWeight mapping. See docs/foundations/typography.md for linking.",
+      "display":          { "$value": "MakeWay-Regular",            "$description": "Make Way — display serif, headlines/numbers" },
+      "display-app":      { "$value": "MakeWayApp-Regular",         "$description": "Make Way App — screen-optimized display cut" },
+      "sans":             { "$value": "BeausiteClassic-Regular",    "$description": "Beausite Classic — body/UI" },
+      "sans-medium":      { "$value": "BeausiteClassic-Medium" },
+      "sans-semibold":    { "$value": "BeausiteClassic-Semibold" },
+      "sans-app":         { "$value": "BeausiteClassicApp-Regular", "$description": "Screen-optimized sans cut for dense UI" },
+      "sans-app-medium":  { "$value": "BeausiteClassicApp-Medium" },
+      "sans-app-semibold":{ "$value": "BeausiteClassicApp-Semibold" }
+    }
+  },
+
+  "text": {
+    "$type": "typography",
+    "$description": "Mobile type scale. fontSize / lineHeight / letterSpacing are absolute points (RN-ready), derived from the brand book's web scale (clamp() maxes are web-only and are not used here).",
+
+    "display":   { "$value": { "fontFamily": "{font.family.display}",        "fontWeight": "500", "fontSize": 34, "lineHeight": 37, "letterSpacing": -1.2 },  "$description": "Hero number/name — one per screen" },
+    "title":     { "$value": { "fontFamily": "{font.family.display}",        "fontWeight": "500", "fontSize": 28, "lineHeight": 32, "letterSpacing": -0.8 } },
+    "headline":  { "$value": { "fontFamily": "{font.family.display}",        "fontWeight": "500", "fontSize": 22, "lineHeight": 26, "letterSpacing": -0.44 } },
+    "lead":      { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 24, "lineHeight": 30, "letterSpacing": -0.48 }, "$description": "Large intro paragraph" },
+    "section":   { "$value": { "fontFamily": "{font.family.sans-semibold}",  "fontWeight": "600", "fontSize": 17, "lineHeight": 22, "letterSpacing": -0.34 }, "$description": "Section header" },
+    "body":      { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 16, "lineHeight": 24, "letterSpacing": -0.16 } },
+    "body-strong": { "$value": { "fontFamily": "{font.family.sans-medium}", "fontWeight": "500", "fontSize": 16, "lineHeight": 24, "letterSpacing": -0.16 } },
+    "secondary": { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 14, "lineHeight": 20, "letterSpacing": -0.14 } },
+    "small":     { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 12, "lineHeight": 16, "letterSpacing": -0.24 } },
+    "eyebrow":   { "$value": { "fontFamily": "{font.family.sans-medium}",    "fontWeight": "500", "fontSize": 11, "lineHeight": 14, "letterSpacing": 0.88, "textTransform": "uppercase" }, "$description": "Uppercase tracked label" },
+    "button":    { "$value": { "fontFamily": "{font.family.sans-medium}",    "fontWeight": "500", "fontSize": 16, "lineHeight": 16, "letterSpacing": -0.32 }, "$description": "Button / CTA label" },
+    "note":      { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 18, "lineHeight": 22, "letterSpacing": -0.36, "fontStyle": "italic" }, "$description": "Editorial italic aside" }
+  }
+}
