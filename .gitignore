@@ -6,6 +6,7 @@ node_modules/
 # Build / generated output
 dist/
 build/
+storybook-static/
 *.tsbuildinfo
 
 # Style Dictionary generated platform output
