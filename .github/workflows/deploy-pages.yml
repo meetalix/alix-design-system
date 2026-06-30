@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       # lucide-react-native caps React at 18 while RN 0.81 needs 19, so the dev
       # tree installs with legacy peer resolution (consumers resolve their own).
