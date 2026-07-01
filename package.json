@@ -5,6 +5,14 @@
   "description": "The Alix Design System — tokens and React Native components. Code is the source of truth.",
   "type": "module",
   "license": "UNLICENSED",
+  "main": "index.ts",
+  "react-native": "index.ts",
+  "types": "index.ts",
+  "files": [
+    "index.ts",
+    "components",
+    "platform"
+  ],
   "scripts": {
     "build:tokens": "node export/build-tokens.js native",
     "export:figma": "node export/build-tokens.js figma",
