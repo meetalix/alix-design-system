@@ -35,7 +35,8 @@ export const tokens = {
       "default": "#FFFFFF",
       "alt": "#F4F3F1",
       "block": "#EAE8E1",
-      "dark": "#0C2553"
+      "dark": "#0C2553",
+      "scrim": "rgba(17,16,13,0.4)"
     },
     "fg": {
       "default": "#11100D",

@@ -44,6 +44,8 @@ export { Card } from './Card/Card';
 export type { CardProps } from './Card/Card.types';
 export { NotchedPanel } from './NotchedPanel/NotchedPanel';
 export type { NotchedPanelProps } from './NotchedPanel/NotchedPanel.types';
+export { Sheet } from './Sheet/Sheet';
+export type { SheetProps } from './Sheet/Sheet.types';
 
 // Navigation
 export { ListRow } from './ListRow/ListRow';
@@ -54,3 +56,7 @@ export { ProgressRing } from './ProgressRing/ProgressRing';
 export type { ProgressRingProps } from './ProgressRing/ProgressRing.types';
 export { PhaseTracker } from './PhaseTracker/PhaseTracker';
 export type { PhaseTrackerProps, PhaseStep, PhaseStatus } from './PhaseTracker/PhaseTracker.types';
+
+// Patterns
+export { DocumentSourceSheet } from './DocumentSourceSheet/DocumentSourceSheet';
+export type { DocumentSourceSheetProps, DocumentSource } from './DocumentSourceSheet/DocumentSourceSheet.types';
