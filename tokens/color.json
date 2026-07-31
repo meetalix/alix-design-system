@@ -36,7 +36,8 @@
       "default": { "$value": "{color.palette.white}",    "$description": "Default app surface" },
       "alt":     { "$value": "{color.palette.tan}",      "$description": "Alternate / inset surface" },
       "block":   { "$value": "{color.palette.tan-dark}", "$description": "Pressed/filled neutral block" },
-      "dark":    { "$value": "{color.palette.navy}",     "$description": "Navy surface (hero, Specialist)" }
+      "dark":    { "$value": "{color.palette.navy}",     "$description": "Navy surface (hero, Specialist)" },
+      "scrim":   { "$value": "rgba(17,16,13,0.4)",       "$description": "Dim behind modals & sheets" }
     },
 
     "fg": {
