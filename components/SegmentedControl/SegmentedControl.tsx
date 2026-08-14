@@ -1,31 +1,56 @@
 import React from 'react';
-import { Pressable, Text, View, StyleSheet, type TextStyle } from 'react-native';
+import { Pressable, View, StyleSheet } from 'react-native';
+import { Sheer } from '../Sheer/Sheer';
+import { Text } from '../Text/Text';
 import { tokens, MIN_TOUCH } from '../theme';
 import type { SegmentedControlProps } from './SegmentedControl.types';
 
 /**
- * Switch between a small set of filters. Navy = "on": the selected segment lifts
- * onto a white surface with a soft shadow; the rest stay quiet on the tan track.
+ * Switch between a small set of filters or states.
+ *
+ * Now built on the SHEER. The Brand Guidelines' on/off control is a sheered pair
+ * (p63) — the seam between segments leans, taken from the Symbol's lines. Previously
+ * this was a rounded-rect track with a lifted white thumb, which is the iOS default
+ * dressed in brand colors: correct tokens, none of the brand's form.
+ *
+ * Each segment's lean is positional, so the ribbon interlocks: the first leans left, the
+ * last leans right, everything between leans both ways. `Sheer` draws its own fill, so
+ * the selected segment is a navy shape rather than a background color on a box.
  */
 export function SegmentedControl({ segments, value, onChange, testID }: SegmentedControlProps) {
+  const last = segments.length - 1;
+
   return (
-    <View style={styles.container} testID={testID}>
-      {segments.map((segment) => {
+    <View style={styles.container} testID={testID} accessibilityRole="tablist">
+      {segments.map((segment, i) => {
         const selected = segment.value === value;
+        // First segment: only its trailing edge is sheered. Last: only its leading edge.
+        // Middle: both. A single segment gets none — nothing to interlock with.
+        const lean =
+          segments.length === 1 ? 'none' : i === 0 ? 'right' : i === last ? 'left' : 'both';
+
         return (
           <Pressable
             key={segment.value}
             onPress={() => onChange(segment.value)}
-            accessibilityRole="button"
+            accessibilityRole="tab"
             accessibilityState={{ selected }}
-            style={[styles.segment, selected && styles.segmentSelected]}
+            style={styles.pressable}
           >
-            <Text
-              numberOfLines={1}
-              style={[styles.label, selected ? styles.labelSelected : styles.labelUnselected]}
+            <Sheer
+              lean={lean}
+              fill={selected ? tokens.color.bg.dark : tokens.color.bg.block}
+              style={styles.segment}
             >
-              {segment.label}
-            </Text>
+              <Text
+                variant="button"
+                tone={selected ? 'on-dark' : 'secondary'}
+                center
+                numberOfLines={1}
+              >
+                {segment.label}
+              </Text>
+            </Sheer>
           </Pressable>
         );
       })}
@@ -36,33 +61,14 @@ export function SegmentedControl({ segments, value, onChange, testID }: Segmente
 SegmentedControl.displayName = 'SegmentedControl';
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    backgroundColor: tokens.color.bg.block,
-    borderRadius: tokens.radius.md,
-    padding: tokens.space[1], // 4
-    gap: tokens.space[1], // 4
-  },
+  // No track and no gap: the sheered edges meet, which is what makes the seam read as
+  // one continuous ribbon rather than separate tiles.
+  container: { flexDirection: 'row', alignItems: 'stretch' },
+  pressable: { flex: 1 },
   segment: {
-    flex: 1,
     minHeight: MIN_TOUCH,
-    borderRadius: tokens.radius.sm,
-    paddingVertical: 11,
-    paddingHorizontal: tokens.space[4], // 16
-    flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent',
+    paddingVertical: tokens.space[3],
+    paddingHorizontal: tokens.space[4],
   },
-  segmentSelected: {
-    backgroundColor: tokens.color.bg.default,
-    ...tokens.shadow.sm,
-  },
-  label: {
-    ...(tokens.text.secondary as TextStyle),
-    fontFamily: tokens.font.family.sansMedium,
-    fontWeight: '500',
-  },
-  labelSelected: { color: tokens.color.fg.brand },
-  labelUnselected: { color: tokens.color.fg.secondary },
 });

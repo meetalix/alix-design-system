@@ -74,3 +74,19 @@ export type { PhaseTrackerProps, PhaseStep, PhaseStatus } from './PhaseTracker/P
 // Patterns
 export { DocumentSourceSheet } from './DocumentSourceSheet/DocumentSourceSheet';
 export type { DocumentSourceSheetProps, DocumentSource } from './DocumentSourceSheet/DocumentSourceSheet.types';
+
+// Brand shape
+export { Sheer } from './Sheer/Sheer';
+export type { SheerProps, SheerLean } from './Sheer/Sheer.types';
+
+// Choice + help
+export { ChoiceGroup } from './ChoiceGroup/ChoiceGroup';
+export type { ChoiceGroupProps, ChoiceOption } from './ChoiceGroup/ChoiceGroup.types';
+export { HelpHint } from './HelpHint/HelpHint';
+export type { HelpHintProps } from './HelpHint/HelpHint.types';
+
+// Wayfinding
+export { StepRibbon } from './StepRibbon/StepRibbon';
+export type { StepRibbonProps, RibbonStep, StepState } from './StepRibbon/StepRibbon.types';
+export { CtaButton } from './CtaButton/CtaButton';
+export type { CtaButtonProps } from './CtaButton/CtaButton.types';
