@@ -90,10 +90,21 @@ export const sheerPath = (
   angleDeg: number = shape.sheer.angle,
 ): string => {
   const d = sheerInset(height, angleDeg);
-  const leadTop = lean === 'left' || lean === 'both' ? d : 0;
-  const trailTop = lean === 'right' || lean === 'both' ? width : width - d;
-  const trailBottom = lean === 'right' || lean === 'both' ? width - d : width;
-  return `M ${leadTop} 0 L ${trailTop} 0 L ${trailBottom} ${height} L 0 ${height} Z`;
+  const leadingSheered = lean === 'left' || lean === 'both';
+  const trailingSheered = lean === 'right' || lean === 'both';
+
+  // Only ONE corner of each vertical edge moves. A sheered edge leans forward: its top
+  // sits ahead of its bottom. A square edge has both corners at the same x.
+  //
+  // The earlier version also pulled the trailing TOP back to `width - d` when the edge
+  // was square, which sheered both sides at once and rendered the last chip in a ribbon
+  // as a trapezoid instead of a flag. Ian caught it on the Basics/Property rail.
+  const topLeft = leadingSheered ? d : 0;
+  const bottomLeft = 0;
+  const topRight = width;
+  const bottomRight = trailingSheered ? width - d : width;
+
+  return `M ${topLeft} 0 L ${topRight} 0 L ${bottomRight} ${height} L ${bottomLeft} ${height} Z`;
 };
 
 /** Every geometry value, for components that need the raw ratios. */
