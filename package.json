@@ -2,7 +2,7 @@
   "name": "@alix/design-system",
   "version": "0.1.0",
   "private": true,
-  "description": "The Alix Design System — tokens and React Native components. Code is the source of truth.",
+  "description": "The Alix Design System \u2014 tokens and React Native components. Code is the source of truth.",
   "type": "module",
   "license": "UNLICENSED",
   "main": "index.ts",
@@ -23,7 +23,7 @@
     "build-storybook:public": "VITE_ALIX_FONTS=off storybook build -o storybook-static"
   },
   "peerDependencies": {
-    "lucide-react-native": ">=0.400.0",
+    "lucide-react-native": ">=0.400.0 <1",
     "react": ">=18",
     "react-native": ">=0.74",
     "react-native-svg": ">=15"
