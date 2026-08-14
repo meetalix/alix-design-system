@@ -3,10 +3,10 @@
     "family": {
       "$type": "fontFamily",
       "$description": "RN font family names. Each weight is a distinct linked family (the licensed Fatype OTFs ship one file per weight), so components set fontFamily directly rather than relying on fontWeight mapping. See docs/foundations/typography.md for linking.",
-      "display":          { "$value": "MakeWay-Regular",            "$description": "Make Way — display serif, headlines/numbers" },
+      "display":          { "$value": "MakeWay-Regular",            "$description": "Make Way — display serif. The book uses ONE weight only: 'Do not use other weights of Make Way' (p32)." },
       "display-app":      { "$value": "MakeWayApp-Regular",         "$description": "Make Way App — screen-optimized display cut" },
-      "sans":             { "$value": "BeausiteClassic-Regular",    "$description": "Beausite Classic — body/UI" },
-      "sans-medium":      { "$value": "BeausiteClassic-Medium" },
+      "sans":             { "$value": "BeausiteClassic-Regular",    "$description": "Beausite Classic — body/UI. Book uses Light, Regular, Semibold only (p33)." },
+      "sans-medium":      { "$value": "BeausiteClassic-Medium",     "$description": "CTA weight. The book's hierarchy names 'Beausite Classic Medium' for CTAs (p34) even though its weight page lists Light/Regular/Semibold — see $notes." },
       "sans-semibold":    { "$value": "BeausiteClassic-Semibold" },
       "sans-app":         { "$value": "BeausiteClassicApp-Regular", "$description": "Screen-optimized sans cut for dense UI" },
       "sans-app-medium":  { "$value": "BeausiteClassicApp-Medium" },
@@ -16,19 +16,23 @@
 
   "text": {
     "$type": "typography",
-    "$description": "Mobile type scale. fontSize / lineHeight / letterSpacing are absolute points (RN-ready), derived from the brand book's web scale (clamp() maxes are web-only and are not used here).",
+    "$description": "Mobile type scale, DERIVED FROM the Alix Brand Guidelines (Jan 2026) 'Typography → Hierarchy' (p34). The book specifies ratios, not pixels, so every entry here is computed from its font size and the stated ratio rather than hand-set. fontSize / lineHeight / letterSpacing are absolute points (RN-ready).",
+    "$notes": "The book's stated rules, and how they land here: HEADLINES — Make Way Regular, sentence case, line spacing 105–115%, tracking −2%. BODY — Beausite Classic Regular, sentence case, line spacing 125–135%, tracking 0%. EYEBROW — Beausite Classic Regular, all-caps, tracking 0%. CTA — Beausite Classic Medium, title case, tracking 0%. NUMERALS — Make Way Regular. Two deliberate departures, both flagged: (1) the eyebrow keeps a small positive tracking (+4%) because at 11pt all-caps in a UI, 0% tracking is genuinely hard to read — the book's specimen is set far larger; (2) Make Way carries no fontWeight override, since the book permits exactly one weight. An earlier version of this file set body at 150% line spacing, eyebrow at +8% tracking, and Make Way at weight 500 — none of which the book supports.",
 
-    "display":   { "$value": { "fontFamily": "{font.family.display}",        "fontWeight": "500", "fontSize": 34, "lineHeight": 37, "letterSpacing": -1.2 },  "$description": "Hero number/name — one per screen" },
-    "title":     { "$value": { "fontFamily": "{font.family.display}",        "fontWeight": "500", "fontSize": 28, "lineHeight": 32, "letterSpacing": -0.8 } },
-    "headline":  { "$value": { "fontFamily": "{font.family.display}",        "fontWeight": "500", "fontSize": 22, "lineHeight": 26, "letterSpacing": -0.44 } },
-    "lead":      { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 24, "lineHeight": 30, "letterSpacing": -0.48 }, "$description": "Large intro paragraph" },
-    "section":   { "$value": { "fontFamily": "{font.family.sans-semibold}",  "fontWeight": "600", "fontSize": 17, "lineHeight": 22, "letterSpacing": -0.34 }, "$description": "Section header" },
-    "body":      { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 16, "lineHeight": 24, "letterSpacing": -0.16 } },
-    "body-strong": { "$value": { "fontFamily": "{font.family.sans-medium}", "fontWeight": "500", "fontSize": 16, "lineHeight": 24, "letterSpacing": -0.16 } },
-    "secondary": { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 14, "lineHeight": 20, "letterSpacing": -0.14 } },
-    "small":     { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 12, "lineHeight": 16, "letterSpacing": -0.24 } },
-    "eyebrow":   { "$value": { "fontFamily": "{font.family.sans-medium}",    "fontWeight": "500", "fontSize": 11, "lineHeight": 14, "letterSpacing": 0.88, "textTransform": "uppercase" }, "$description": "Uppercase tracked label" },
-    "button":    { "$value": { "fontFamily": "{font.family.sans-medium}",    "fontWeight": "500", "fontSize": 16, "lineHeight": 16, "letterSpacing": -0.32 }, "$description": "Button / CTA label" },
-    "note":      { "$value": { "fontFamily": "{font.family.sans}",           "fontWeight": "400", "fontSize": 18, "lineHeight": 22, "letterSpacing": -0.36, "fontStyle": "italic" }, "$description": "Editorial italic aside" }
+    "display":     { "$value": { "fontFamily": "{font.family.display}",       "fontSize": 34, "lineHeight": 37,  "letterSpacing": -0.68 }, "$description": "Hero headline or number — one per screen. 109% / −2%." },
+    "title":       { "$value": { "fontFamily": "{font.family.display}",       "fontSize": 28, "lineHeight": 31,  "letterSpacing": -0.56 }, "$description": "Screen title. 111% / −2%." },
+    "headline":    { "$value": { "fontFamily": "{font.family.display}",       "fontSize": 22, "lineHeight": 24,  "letterSpacing": -0.44 }, "$description": "Card / section headline. 109% / −2%." },
+    "numeral":     { "$value": { "fontFamily": "{font.family.display}",       "fontSize": 28, "lineHeight": 31,  "letterSpacing": 0 },     "$description": "Figures set in Make Way per the book's Numerals rule (p34); tracking 0%, unlike headlines." },
+
+    "lead":        { "$value": { "fontFamily": "{font.family.sans}",          "fontSize": 20, "lineHeight": 26,  "letterSpacing": 0 },     "$description": "Large intro paragraph. 130% / 0%." },
+    "body":        { "$value": { "fontFamily": "{font.family.sans}",          "fontSize": 16, "lineHeight": 21,  "letterSpacing": 0 },     "$description": "Default body. 131% / 0%." },
+    "body-strong": { "$value": { "fontFamily": "{font.family.sans-semibold}", "fontSize": 16, "lineHeight": 21,  "letterSpacing": 0 },     "$description": "Emphasis within body — Semibold, a weight the book sanctions." },
+    "secondary":   { "$value": { "fontFamily": "{font.family.sans}",          "fontSize": 14, "lineHeight": 18,  "letterSpacing": 0 },     "$description": "Supporting copy. 129% / 0%." },
+    "small":       { "$value": { "fontFamily": "{font.family.sans}",          "fontSize": 12, "lineHeight": 16,  "letterSpacing": 0 },     "$description": "Meta, captions, timestamps. 133% / 0%." },
+
+    "section":     { "$value": { "fontFamily": "{font.family.sans-semibold}", "fontSize": 17, "lineHeight": 22,  "letterSpacing": 0 },     "$description": "Section header in a list or form. 129% / 0%." },
+    "eyebrow":     { "$value": { "fontFamily": "{font.family.sans}",          "fontSize": 11, "lineHeight": 14,  "letterSpacing": 0.44, "textTransform": "uppercase" }, "$description": "All-caps label ABOVE a headline — the book's Eyebrow (p34). Regular weight, not Medium. Use sparingly: it is an eyebrow, not a style for every card label." },
+    "button":      { "$value": { "fontFamily": "{font.family.sans-medium}",   "fontSize": 16, "lineHeight": 20,  "letterSpacing": 0 },     "$description": "CTA label — Beausite Classic Medium, Title Case, tracking 0% (p34)." },
+    "note":        { "$value": { "fontFamily": "{font.family.sans}",          "fontSize": 16, "lineHeight": 21,  "letterSpacing": 0, "fontStyle": "italic" }, "$description": "Editorial italic aside." }
   }
 }

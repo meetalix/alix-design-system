@@ -1,0 +1,32 @@
+{
+  "shape": {
+    "$description": "Brand-specific geometry from the Alix Brand Guidelines (Jan 2026) 'Graphic Elements'. These are the forms that make a screen look like Alix rather than like a generic app, and nothing else in the system encodes them. Two families: the SHEER (wayfinding, p62–63) and the CONTAINER/CARD construction rules (p56–60).",
+
+    "sheer": {
+      "$description": "The sheered rectangle — 'Inspired by the lines of the Symbol, we've created sheered rectangles to be used throughout the brand' (p63). The book applies it to timeline steps, category tabs, segmented on/off controls and CTA buttons. It is the single most recognizable Alix UI form and must not be approximated with a plain rounded rect.",
+      "angle": { "$type": "number", "$value": 20, "$description": "Degrees off vertical for the sheered edge, measured from the Symbol's chevron. Positive leans the top edge forward (reading direction)." },
+      "inset": { "$type": "dimension", "$value": 14, "$description": "Horizontal offset the sheer introduces across a standard control height (~40pt). Derived: round(height * tan(angle)). Used to overlap adjacent chips so they interlock rather than butt together." },
+      "overlap": { "$type": "dimension", "$value": 2, "$description": "How far a following chip tucks under the previous one, so the seam reads as one continuous ribbon." }
+    },
+
+    "container": {
+      "$description": "The folder/tab container (p56–57). 'Alix's Settlement Specialists handle legal, financial, and personal details with clarity and organization… our brand utilizes a container system inspired by folders and tabs.' The tab is not decoration — it houses the label or CTA for the content inside.",
+      "radius-ratio":     { "$type": "number",    "$value": 0.03, "$description": "Corner radius = 3% of the SHORTEST side of the container (p57, step 3). A 300pt-wide container gets 10pt. Proportional, not a fixed step — use shape.containerRadius() in code." },
+      "radius-min":       { "$type": "dimension", "$value": 8,    "$description": "Floor for small containers, so a compact panel doesn't end up nearly square." },
+      "radius-max":       { "$type": "dimension", "$value": 28,   "$description": "Ceiling on phone screens, so a full-bleed panel doesn't read as a pill." },
+      "grid-columns":     { "$type": "number",    "$value": 12,   "$description": "Vertical grid: tab width is set by dividing the container into 12 columns (p57, step 1). A tab is typically 4/12." },
+      "grid-rows":        { "$type": "number",    "$value": 16,   "$description": "Horizontal grid: split the height into 16 rows once the tab type size is set (p57, step 2)." },
+      "tab-columns":      { "$type": "number",    "$value": 4,    "$description": "Default tab width in grid columns (the book's worked example is 1/4 of the width)." },
+      "tab-padding":      { "$type": "dimension", "$value": 14,   "$description": "Padding inside the tab (p57's worked example)." }
+    },
+
+    "card": {
+      "$description": "The Card system (p58–60) — 'to call out notifications, features, and capabilities… can be overlaid on imagery'. Cards differ from containers: no tab, heavier corner rounding, and they are designed to overlap each other and photography.",
+      "margin-ratio":       { "$type": "number",    "$value": 0.10, "$description": "Inner margin = 10% of the shortest side (p60, step 1)." },
+      "margin-ratio-tight": { "$type": "number",    "$value": 0.18, "$description": "18% 'for extreme cases' — very small cards, where 10% leaves the type touching the edge." },
+      "radius-ratio":       { "$type": "number",    "$value": 0.08, "$description": "Corner radius as a fraction of the shortest side. Fitted to the book's worked examples: a 6x4 grid card rounds to 24 and a 6x6 to 30. Rounder than a container, which is what separates the two at a glance." },
+      "radius-min":         { "$type": "dimension", "$value": 12 },
+      "radius-max":         { "$type": "dimension", "$value": 32 }
+    }
+  }
+}

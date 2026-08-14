@@ -16,7 +16,7 @@ export const tokens = {
       "symbolBlue": "#A0DAE0",
       "blue": "#1170DB",
       "ctaBlue": "#043CA5",
-      "ink": "#11100D",
+      "ink": "#1D1A18",
       "textWorking": "#2F3136",
       "gray": "#9E9E9E",
       "red": "#B23A2B",
@@ -26,6 +26,7 @@ export const tokens = {
       "green": "#2F6B4F",
       "greenSoft": "#E4EEE8",
       "blueSoft": "#E4F0FB",
+      "vizGreen": "#15A573",
       "teal": "#05D3BD",
       "cyan": "#72F2E4",
       "yellow": "#FFEB67",
@@ -36,10 +37,10 @@ export const tokens = {
       "alt": "#F4F3F1",
       "block": "#EAE8E1",
       "dark": "#0C2553",
-      "scrim": "rgba(17,16,13,0.4)"
+      "scrim": "rgba(29,26,24,0.4)"
     },
     "fg": {
-      "default": "#11100D",
+      "default": "#1D1A18",
       "secondary": "#2F3136",
       "muted": "#9E9E9E",
       "brand": "#0C2553",
@@ -49,14 +50,24 @@ export const tokens = {
     "accent": {
       "default": "#B6ABFD",
       "soft": "#D7F5F9",
-      "onAccent": "#11100D"
+      "onAccent": "#1D1A18"
     },
     "action": {
       "default": "#1170DB",
       "press": "#043CA5"
     },
     "border": {
-      "hairline": "rgba(17,16,13,0.12)"
+      "hairline": "rgba(29,26,24,0.12)"
+    },
+    "viz": {
+      "series1": "#0C2553",
+      "series2": "#B6ABFD",
+      "series3": "#15A573",
+      "series4": "#05D3BD",
+      "series5": "#FFC167",
+      "series6": "#72F2E4",
+      "series7": "#FFEB67",
+      "grid": "#EAE8E1"
     },
     "state": {
       "error": {
@@ -149,6 +160,29 @@ export const tokens = {
     "xl": 36,
     "pill": 999
   },
+  "shape": {
+    "sheer": {
+      "angle": 20,
+      "inset": 14,
+      "overlap": 2
+    },
+    "container": {
+      "radiusRatio": 0.03,
+      "radiusMin": 8,
+      "radiusMax": 28,
+      "gridColumns": 12,
+      "gridRows": 16,
+      "tabColumns": 4,
+      "tabPadding": 14
+    },
+    "card": {
+      "marginRatio": 0.1,
+      "marginRatioTight": 0.18,
+      "radiusRatio": 0.08,
+      "radiusMin": 12,
+      "radiusMax": 32
+    }
+  },
   "space": {
     "1": 4,
     "2": 8,
@@ -175,88 +209,82 @@ export const tokens = {
   "text": {
     "display": {
       "fontFamily": "MakeWay-Regular",
-      "fontWeight": "500",
       "fontSize": 34,
       "lineHeight": 37,
-      "letterSpacing": -1.2
+      "letterSpacing": -0.68
     },
     "title": {
       "fontFamily": "MakeWay-Regular",
-      "fontWeight": "500",
       "fontSize": 28,
-      "lineHeight": 32,
-      "letterSpacing": -0.8
+      "lineHeight": 31,
+      "letterSpacing": -0.56
     },
     "headline": {
       "fontFamily": "MakeWay-Regular",
-      "fontWeight": "500",
       "fontSize": 22,
-      "lineHeight": 26,
+      "lineHeight": 24,
       "letterSpacing": -0.44
+    },
+    "numeral": {
+      "fontFamily": "MakeWay-Regular",
+      "fontSize": 28,
+      "lineHeight": 31,
+      "letterSpacing": 0
     },
     "lead": {
       "fontFamily": "BeausiteClassic-Regular",
-      "fontWeight": "400",
-      "fontSize": 24,
-      "lineHeight": 30,
-      "letterSpacing": -0.48
-    },
-    "section": {
-      "fontFamily": "BeausiteClassic-Semibold",
-      "fontWeight": "600",
-      "fontSize": 17,
-      "lineHeight": 22,
-      "letterSpacing": -0.34
+      "fontSize": 20,
+      "lineHeight": 26,
+      "letterSpacing": 0
     },
     "body": {
       "fontFamily": "BeausiteClassic-Regular",
-      "fontWeight": "400",
       "fontSize": 16,
-      "lineHeight": 24,
-      "letterSpacing": -0.16
+      "lineHeight": 21,
+      "letterSpacing": 0
     },
     "bodyStrong": {
-      "fontFamily": "BeausiteClassic-Medium",
-      "fontWeight": "500",
+      "fontFamily": "BeausiteClassic-Semibold",
       "fontSize": 16,
-      "lineHeight": 24,
-      "letterSpacing": -0.16
+      "lineHeight": 21,
+      "letterSpacing": 0
     },
     "secondary": {
       "fontFamily": "BeausiteClassic-Regular",
-      "fontWeight": "400",
       "fontSize": 14,
-      "lineHeight": 20,
-      "letterSpacing": -0.14
+      "lineHeight": 18,
+      "letterSpacing": 0
     },
     "small": {
       "fontFamily": "BeausiteClassic-Regular",
-      "fontWeight": "400",
       "fontSize": 12,
       "lineHeight": 16,
-      "letterSpacing": -0.24
+      "letterSpacing": 0
+    },
+    "section": {
+      "fontFamily": "BeausiteClassic-Semibold",
+      "fontSize": 17,
+      "lineHeight": 22,
+      "letterSpacing": 0
     },
     "eyebrow": {
-      "fontFamily": "BeausiteClassic-Medium",
-      "fontWeight": "500",
+      "fontFamily": "BeausiteClassic-Regular",
       "fontSize": 11,
       "lineHeight": 14,
-      "letterSpacing": 0.88,
+      "letterSpacing": 0.44,
       "textTransform": "uppercase"
     },
     "button": {
       "fontFamily": "BeausiteClassic-Medium",
-      "fontWeight": "500",
       "fontSize": 16,
-      "lineHeight": 16,
-      "letterSpacing": -0.32
+      "lineHeight": 20,
+      "letterSpacing": 0
     },
     "note": {
       "fontFamily": "BeausiteClassic-Regular",
-      "fontWeight": "400",
-      "fontSize": 18,
-      "lineHeight": 22,
-      "letterSpacing": -0.36,
+      "fontSize": 16,
+      "lineHeight": 21,
+      "letterSpacing": 0,
       "fontStyle": "italic"
     }
   }

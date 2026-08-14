@@ -12,8 +12,22 @@ export { tokens, MIN_TOUCH, PRESS_OVERLAY, PRESS_NUDGE, hairline, focusRing } fr
 export type { Tokens } from './theme';
 
 // Foundations
+export { Text } from './Text/Text';
+export type { TextProps, TextVariant, TextTone } from './Text/Text.types';
 export { Icon } from './Icon/Icon';
 export type { IconProps, IconName } from './Icon/Icon.types';
+
+// Brand geometry — proportional radii and the sheered wayfinding form (see shape.ts)
+export {
+  containerRadius,
+  cardRadius,
+  cardMargin,
+  tabWidth,
+  gridRow,
+  sheerInset,
+  sheerPath,
+  geometry,
+} from './shape';
 
 // Actions
 export { Button } from './Button/Button';
