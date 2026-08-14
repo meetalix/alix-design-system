@@ -31,10 +31,17 @@ Guidelines · **⬜ missing** · **➕ new** — no mobile equivalent, but the p
 | Component | Status | Notes |
 | --- | --- | --- |
 | `Text` | ✅ ➕ | **New.** The single biggest gap — there was no type primitive, so every component hand-spread `tokens.text.*`. |
+| `Sheer` | ✅ ➕ | **New.** The brand's signature shape (p63), as real SVG geometry. |
+| `StepRibbon` | ✅ ➕ | **New.** The book's horizontal Step 1/2/3 ribbon (p62–63). |
+| `CtaButton` | ✅ ➕ | **New.** The sheered purple CTA with a navy arrow cap (p63). |
+| `ChoiceGroup` | ✅ ➕ | **New.** Single-select options — the control whose absence made onboarding invent its own. |
+| `HelpHint` | ✅ ➕ | **New.** "?" badge → plain-language modal. Nothing of the kind existed in the app. |
 | `Button` | 🟡 | Works, but see **Sheered CTA** below — the book's primary CTA is a sheered chip with an arrow cap (p63), which this doesn't do. |
 | `Card` | 🟡 | Needs the proportional radius/margin rules from p60. |
 | `NotchedPanel` | 🟡 | Right idea — this is the folder/tab container — but the notch is fixed rather than following the 12-column tab grid (p57). |
-| `Icon`, `ListRow`, `Tag`, `StatusDot`, `ProgressRing`, `Switch`, `Checkbox`, `Radio`, `TextField`, `SegmentedControl`, `Sheet`, `PhaseTracker`, `DocumentSourceSheet` | ✅ | Exist and consume semantic tokens. `SegmentedControl` and `PhaseTracker` should adopt the sheer — see below. |
+| `SegmentedControl` | ✅ | **Rebuilt on the sheer.** Was a rounded-rect track with a lifted thumb — the iOS default in brand colors. |
+| `PhaseTracker` | ✅ | Stays a VERTICAL timeline; the book's horizontal step form is `StepRibbon`. Deliberately not merged. |
+| `Icon`, `ListRow`, `Tag`, `StatusDot`, `ProgressRing`, `Switch`, `Checkbox`, `Radio`, `TextField`, `Sheet`, `DocumentSourceSheet` | ✅ | Exist and consume semantic tokens. |
 
 ### Missing — mobile uses these today
 
@@ -62,10 +69,10 @@ Each maps to something real in `alix-mobile`, so these block adoption.
 
 | Component | Driver |
 | --- | --- |
-| `HelpHint` ⬜ | **CX-139.** There is no tooltip or help component anywhere in the app, and onboarding asks questions we can't be sure we're wording correctly. The pattern already exists as `EstimateNote` in mobile — a "?" badge opening a plain-language modal. Promote it. |
-| `ChoiceGroup` ⬜ | **CX-139.** Onboarding's yes/no pills are bespoke *because the styleguide has no choice control* — only `Button` and `Text` existed. Fixing the instance without filling the gap means the next screen invents another. Must keep the brand-aware selection rule: partner brands use grey, never yellow (EJ's derived tokens gave ~1.3:1 contrast). |
-| Sheered `SegmentedControl` 🟡 | The book's on/off control is a sheered pair (p63). |
-| Sheered step chips in `PhaseTracker` 🟡 | The book's timeline is Step 1 / Step 2 / Step 3 as sheered chips (p63). |
+| `HelpHint` ✅ | **CX-139 — built.** There is no tooltip or help component anywhere in the app, and onboarding asks questions we can't be sure we're wording correctly. The pattern already exists as `EstimateNote` in mobile — a "?" badge opening a plain-language modal. Promote it. |
+| `ChoiceGroup` ✅ | **CX-139 — built.** Onboarding's yes/no pills are bespoke *because the styleguide has no choice control* — only `Button` and `Text` existed. Fixing the instance without filling the gap means the next screen invents another. Must keep the brand-aware selection rule: partner brands use grey, never yellow (EJ's derived tokens gave ~1.3:1 contrast). |
+| Sheered `SegmentedControl` ✅ | Done. |
+| Sheered step chips ✅ | Done as `StepRibbon`, separate from the vertical `PhaseTracker`. |
 | `Logo` / `Symbol` ⬜ | Assets are in `assets/brand/`, but no component enforces the rules: the Symbol appears **only** in Navy, Symbol Blue or White (p23), with minimum clearspace (p22). Onboarding currently draws a bespoke purple orb, which those rules don't permit. |
 
 ### Likely future needs
@@ -112,11 +119,14 @@ Recording these rather than silently picking a side.
 
 ## Sequence
 
-1. **Foundations** — done in this pass.
-2. **`Text`** — done. Everything else depends on it.
-3. **`ChoiceGroup` + `HelpHint`** — unblocks CX-139.
-4. **Sheer adoption** — `SegmentedControl`, `PhaseTracker`, sheered CTA. This is what
-   makes the app look like the brand rather than merely use its colors.
-5. **The mobile-parity list** — `Divider` through `UploadTile`.
+1. ~~**Foundations**~~ — done.
+2. ~~**`Text`**~~ — done. Everything else depends on it.
+3. ~~**`ChoiceGroup` + `HelpHint`**~~ — done; unblocks CX-139.
+4. ~~**Sheer adoption**~~ — done: `Sheer`, `StepRibbon`, `CtaButton`, and
+   `SegmentedControl` rebuilt on it.
+5. **The mobile-parity list** — `Divider` through `UploadTile`. ← next
+6. **`Logo`/`Symbol`** with the usage rules enforced.
+7. **Adopt in `alix-mobile`** — the system is only worth what consumes it. CX-139 is
+   the first candidate.
 6. **`Logo`/`Symbol`** with the usage rules enforced.
 7. Future-needs list, as product work calls for it.
