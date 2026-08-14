@@ -14,6 +14,8 @@ export type { Tokens } from './theme';
 // Foundations
 export { Text } from './Text/Text';
 export type { TextProps, TextVariant, TextTone } from './Text/Text.types';
+export { Symbol } from './Symbol/Symbol';
+export type { SymbolProps, SymbolTone } from './Symbol/Symbol.types';
 export { Icon } from './Icon/Icon';
 export type { IconProps, IconName } from './Icon/Icon.types';
 
