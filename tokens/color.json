@@ -2,7 +2,8 @@
   "color": {
     "$type": "color",
     "palette": {
-      "$description": "Primitives — raw brand values. Never consume these directly in a component; use a semantic alias below.",
+      "$description": "Primitives — raw values. Never consume these directly in a component; use a semantic alias below. Values marked (pNN) come from the Alix Brand Guidelines, Jan 2026; anything unmarked is a product extension the book does not define — see $notes.",
+      "$notes": "The book's Color Usage (p40) sets the proportions: White is the ~90% foundation, Navy 'confidently breaks up information', Tan/Darker Tan give depth to information design, and Blue/Purple are accents for important information and CTAs. The utility palette (viz-green, teal, cyan, yellow, orange) is explicitly ~10% and 'only for moments in data charts' (p40, p43) — never for UI status. The status ramp below (red/amber/green + softs) is therefore a deliberate EXTENSION: a product needs error/warning/success states and the book does not provide them. They are muted on purpose so they never read as brand color.",
       "navy":        { "$value": "#0C2553", "$description": "Primary brand color" },
       "navy-deep":   { "$value": "#0E2D66", "$description": "Tonal symbol-on-navy" },
       "white":       { "$value": "#FFFFFF" },
@@ -13,7 +14,7 @@
       "symbol-blue": { "$value": "#A0DAE0", "$description": "Two-tone logo accent" },
       "blue":        { "$value": "#1170DB", "$description": "Links, primary action" },
       "cta-blue":    { "$value": "#043CA5", "$description": "Hover / pressed action" },
-      "ink":         { "$value": "#11100D", "$description": "Near-black headings/body" },
+      "ink":         { "$value": "#1D1A18", "$description": "Almost Black — headings/body (Brand Guidelines p38)" },
       "text-working":{ "$value": "#2F3136", "$description": "Secondary 'working' text" },
       "gray":        { "$value": "#9E9E9E", "$description": "Disabled / placeholder" },
 
@@ -21,14 +22,15 @@
       "red-soft":    { "$value": "#F6E7E4" },
       "amber":       { "$value": "#A56A12" },
       "amber-soft":  { "$value": "#F7EEDD" },
-      "green":       { "$value": "#2F6B4F" },
+      "green":       { "$value": "#2F6B4F", "$description": "Status green — NOT in the brand book; see status note below" },
       "green-soft":  { "$value": "#E4EEE8" },
       "blue-soft":   { "$value": "#E4F0FB" },
 
-      "teal":        { "$value": "#05D3BD", "$description": "Data-viz only" },
-      "cyan":        { "$value": "#72F2E4", "$description": "Data-viz only" },
-      "yellow":      { "$value": "#FFEB67", "$description": "Data-viz only" },
-      "orange":      { "$value": "#FFC167", "$description": "Data-viz only" }
+      "viz-green":   { "$value": "#15A573", "$description": "Utility palette — data-viz only (p38)" },
+      "teal":        { "$value": "#05D3BD", "$description": "Utility palette — data-viz only (p38)" },
+      "cyan":        { "$value": "#72F2E4", "$description": "Utility palette — data-viz only (p38)" },
+      "yellow":      { "$value": "#FFEB67", "$description": "Utility palette — data-viz only (p38)" },
+      "orange":      { "$value": "#FFC167", "$description": "Utility palette — data-viz only (p38)" }
     },
 
     "bg": {
@@ -37,7 +39,7 @@
       "alt":     { "$value": "{color.palette.tan}",      "$description": "Alternate / inset surface" },
       "block":   { "$value": "{color.palette.tan-dark}", "$description": "Pressed/filled neutral block" },
       "dark":    { "$value": "{color.palette.navy}",     "$description": "Navy surface (hero, Specialist)" },
-      "scrim":   { "$value": "rgba(17,16,13,0.4)",       "$description": "Dim behind modals & sheets" }
+      "scrim":   { "$value": "rgba(29,26,24,0.4)",       "$description": "Dim behind modals & sheets" }
     },
 
     "fg": {
@@ -61,7 +63,19 @@
     },
 
     "border": {
-      "hairline": { "$value": "rgba(17,16,13,0.12)", "$description": "The default 1px separator" }
+      "hairline": { "$value": "rgba(29,26,24,0.12)", "$description": "The default 1px separator" }
+    },
+
+    "viz": {
+      "$description": "Data visualization ONLY. The book (p40, p43) caps the utility palette at ~10% of the system and says 'do not use utility palette colors outside of infographics'. Series order is fixed so two charts on the same screen agree.",
+      "series-1": { "$value": "{color.palette.navy}",      "$description": "Primary series — core palette leads" },
+      "series-2": { "$value": "{color.palette.purple}" },
+      "series-3": { "$value": "{color.palette.viz-green}" },
+      "series-4": { "$value": "{color.palette.teal}" },
+      "series-5": { "$value": "{color.palette.orange}" },
+      "series-6": { "$value": "{color.palette.cyan}" },
+      "series-7": { "$value": "{color.palette.yellow}" },
+      "grid":     { "$value": "{color.palette.tan-dark}", "$description": "Axis lines and gridlines" }
     },
 
     "state": {

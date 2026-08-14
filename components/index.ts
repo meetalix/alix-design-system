@@ -12,8 +12,24 @@ export { tokens, MIN_TOUCH, PRESS_OVERLAY, PRESS_NUDGE, hairline, focusRing } fr
 export type { Tokens } from './theme';
 
 // Foundations
+export { Text } from './Text/Text';
+export type { TextProps, TextVariant, TextTone } from './Text/Text.types';
+export { Symbol } from './Symbol/Symbol';
+export type { SymbolProps, SymbolTone } from './Symbol/Symbol.types';
 export { Icon } from './Icon/Icon';
 export type { IconProps, IconName } from './Icon/Icon.types';
+
+// Brand geometry — proportional radii and the sheered wayfinding form (see shape.ts)
+export {
+  containerRadius,
+  cardRadius,
+  cardMargin,
+  tabWidth,
+  gridRow,
+  sheerInset,
+  sheerPath,
+  geometry,
+} from './shape';
 
 // Actions
 export { Button } from './Button/Button';
@@ -60,3 +76,19 @@ export type { PhaseTrackerProps, PhaseStep, PhaseStatus } from './PhaseTracker/P
 // Patterns
 export { DocumentSourceSheet } from './DocumentSourceSheet/DocumentSourceSheet';
 export type { DocumentSourceSheetProps, DocumentSource } from './DocumentSourceSheet/DocumentSourceSheet.types';
+
+// Brand shape
+export { Sheer } from './Sheer/Sheer';
+export type { SheerProps, SheerLean } from './Sheer/Sheer.types';
+
+// Choice + help
+export { ChoiceGroup } from './ChoiceGroup/ChoiceGroup';
+export type { ChoiceGroupProps, ChoiceOption } from './ChoiceGroup/ChoiceGroup.types';
+export { HelpHint } from './HelpHint/HelpHint';
+export type { HelpHintProps } from './HelpHint/HelpHint.types';
+
+// Wayfinding
+export { StepRibbon } from './StepRibbon/StepRibbon';
+export type { StepRibbonProps, RibbonStep, StepState } from './StepRibbon/StepRibbon.types';
+export { CtaButton } from './CtaButton/CtaButton';
+export type { CtaButtonProps } from './CtaButton/CtaButton.types';
