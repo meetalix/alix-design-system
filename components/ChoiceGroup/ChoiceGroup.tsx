@@ -121,7 +121,16 @@ const styles = StyleSheet.create({
   optionStacked: { width: '100%' },
 
   optionSelected: {
-    borderColor: tokens.color.accent.default,
+    // Navy, not the purple accent. WCAG 1.4.11 requires 3:1 for the visual information
+    // identifying a component's state, and the selected state has to be carried by
+    // something that clears it. Measured against the unselected white surface:
+    //   purple #B6ABFD border   2.05:1  ✗
+    //   light-blue fill         1.15:1  ✗   ← fill alone can't carry it either
+    //   navy  #0C2553 border   14.94:1  ✓
+    // So a purple-bordered, softly-filled pill looks selected to most people and is
+    // indistinguishable to some. Navy also matches the book's role for it — Navy
+    // "confidently breaks up information" (p40), while purple is the one accent moment.
+    borderColor: tokens.color.fg.brand,
     backgroundColor: tokens.color.accent.soft,
   },
   optionPressed: { opacity: 0.9 },

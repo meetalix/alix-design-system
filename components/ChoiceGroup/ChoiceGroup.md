@@ -41,6 +41,21 @@ sheered in `SegmentedControl` and `StepRibbon`, is the distinction the book draw
 - **Don't** use it for on/off state — that's `SegmentedControl`.
 - **Don't** exceed ~7 options. Past that, use a picker.
 
+## Contrast
+
+The selected state is carried by a **navy border**, not the purple accent. WCAG 1.4.11
+wants 3:1 for the visual information identifying a component's state, and measured
+against the unselected white surface:
+
+| | Ratio | |
+| --- | --- | --- |
+| purple `#B6ABFD` border | 2.05:1 | ✗ |
+| light-blue fill vs white | 1.15:1 | ✗ — the fill can't carry it either |
+| navy `#0C2553` border | 14.94:1 | ✓ |
+
+A purple-bordered, softly-filled pill *looks* selected to most people and is
+indistinguishable to some. **If you restyle the selected state, re-measure.**
+
 ## Partner brands
 
 Selection uses semantic accent tokens, so a partner build re-themes by swapping the alias
